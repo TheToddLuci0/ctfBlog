@@ -1,0 +1,18 @@
+extends layout
+
+
+
+block content
+    if err == true
+        div.alert.alert-danger
+            em Invalid credentials
+    form(method='POST' action='/login')
+        div.form-group
+            label(for='name') Username:
+            input#name.form-control(type='text', placeholder='username', name='uname')
+        div.form-group
+            label(for='password') Password:
+            input#password.form-control(type='text', placeholder='password', name='password')
+        button.btn.btn-primary(type='submit') Log in
+    if mess
+        code #{mess}

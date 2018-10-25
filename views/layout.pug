@@ -1,0 +1,39 @@
+doctype html
+html(lang='en')
+  head
+    title My RA Blog
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(rel='stylesheet', href='../stylesheets/blog.css')
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css", integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp", crossorigin="anonymous")
+    link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin='anonymous')
+  body
+    .blog-masthead
+      .container
+        mixin nav(active)
+          if active == "home"
+            nav.blog-nav
+              a.blog-nav-item.active(href='/') Home
+              a.blog-nav-item(href='/changelog/') New features
+              a.blog-nav-item(href='/about/') About
+          else if active == "about"
+            nav.blog-nav
+              a.blog-nav-item(href='/') Home
+              a.blog-nav-item(href='/changelog/') New features
+              a.blog-nav-item.active(href='/about/') About
+          else if active == "changelog"
+            nav.blog-nav
+              a.blog-nav-item(href='/') Home
+              a.blog-nav-item.active(href='/changelog/') New features
+              a.blog-nav-item(href='/about/') About
+          else
+            nav.blog-nav
+              a.blog-nav-item(href='/') Home
+              a.blog-nav-item(href='/changelog/') New features
+              a.blog-nav-item(href='/about/') About
+        - var isActive = activeSection
+        +nav(isActive)
+    .container
+      block content
+        p If you can see this, Mr. Big got me
+    // This bit goes last for performance reasons
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin='anonymous')

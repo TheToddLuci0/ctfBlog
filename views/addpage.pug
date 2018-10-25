@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    form(method='POST' action='/addpage')
+        div.form-group
+            label(for='title') Title:
+            input#name.form-control(type='text', placeholder='Title', name='title')
+        div.form-group
+            label(for='body') Password:
+            input#password.form-control(type='textarea', placeholder='Body', name='body')
+        button.btn.btn-primary(type='submit') submit

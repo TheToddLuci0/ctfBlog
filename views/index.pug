@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  div.blog-header
+    h1.blog-title Welcome to My Blog
+      p.lead.blog-description The best place to learn about Friley Hall activities
+  div.row
+    div.col-sm-8.blog-main
+      h1 Welcome to my Blog
+      mixin postview(title, content)
+        h2.blog-post-title #{title}
+        | !{content}
+        hr
+      each post in postList
+        +postview(post.title, post.content)
+    div.col-sm-3.col-sm-offset-1.blog-sidebar
+      div.sidebar-module.sidebar-module-inset
+        p My name is Tom Frank, and I am a Friley Hall RA. Here you will find information for residents, and cool stories about Firley's goings on!
+      div.sidebar-module
+        h4 Archives
+          ol.list-unstyled
+            li thing
+      div.sidebar-module
+        h4 Elsewhere
+          ol.ist-unstyled
+            li tmp
