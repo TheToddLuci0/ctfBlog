@@ -18,14 +18,14 @@ const client = new Client({
 client.connect()
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
     client.query('SELECT * FROM posts ORDER BY id DESC', null, function (sql_err, sql_res) {
-      let posts = new Object();
-      // Object.assign(posts, {'posts':[]})
-      for ( let i of sql_res.rows){
-        posts[i.id]= {title: i.title, content: i.content}
-      }
-      console.log(JSON.stringify(posts));
+        let posts = new Object();
+        // Object.assign(posts, {'posts':[]})
+        for (let i of sql_res.rows) {
+            posts[i.id] = {title: i.title, content: i.content}
+        }
+        console.log(JSON.stringify(posts));
         res.render('index', {title: 'Express', activeSection: 'home', postList: posts});
     })
 });
