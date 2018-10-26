@@ -10,6 +10,8 @@ var abooutRouter = require('./routes/about');
 var changeRouter = require('./routes/changelog');
 var loginRouter = require('./routes/login');
 var addRouter = require('./routes/addpage');
+var sshRouter = require('./routes/ssh');
+var gpgRouter = require('./routes/gpg');
 
 var app = express();
 
@@ -29,6 +31,8 @@ app.use('/about', abooutRouter);
 app.use('/changelog', changeRouter);
 app.use('/login', loginRouter);
 app.use('/addpage', addRouter);
+app.use('/ssh', sshRouter);
+app.use('/gpg', gpgRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
